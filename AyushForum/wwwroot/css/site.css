@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+a {
+    color: white;
+    font-weight: bold;
+}
+body {
+    margin-bottom: 60px;
+    background-color: #2a2e2b;
+    font-family: 'Courier New';
+    color: white !important;
+}
+
+@font-face {
+    font-family: 'HeadingFont';
+    src: url(/fonts/heading.ttf) format('truetype');
+}
+
+@media screen and (min-width: 1600px) { 
+    html {
+        font-size: 1.25rem; 
+    }
+}
+
+.container {
+    color: white;
+}
+.table {
+    color: white; 
+}
+
+h2, h3, h4 {
+    font-weight: bold; 
+}

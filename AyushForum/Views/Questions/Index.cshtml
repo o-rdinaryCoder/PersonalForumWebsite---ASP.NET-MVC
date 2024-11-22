@@ -1,0 +1,40 @@
+﻿@model PaginatedList<Forum.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-family: HeadingFont; text-align: center;" >Ayush's Forum</h1>
+
+
+@foreach (var item in Model) {
+
+    <hr />
+    <h4 style="margin-top: 15px;">@item.Title</h4>
+    <p>@item.Description </p>
+    <p>Posted by: @item.User.UserName | Total answers: @item.Answers.Count</p>
+                
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>                 
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div class="d-flex justify-content-center">
+    <a asp-action="Index"
+    asp-route-pageNumber="@(Model.PageIndex - 1)"
+       class="btn btn-default @prevDisabled" style="color: white;">
+       Previous
+    </a>
+    <div class="btn" style="cursor: default; color: white;">
+        Page @Model.PageIndex of @Model.TotalPages
+    </div>
+    <a asp-action="Index"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       class="btn btn-default @nextDisabled" style="color:white;">
+        Next
+    </a>
+</div>
+    
